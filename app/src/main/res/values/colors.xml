@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#a8bdcd</color>
+    <color name="colorPrimaryDark">#a8abcd</color>
+    <color name="colorAccent">#b8a8cd</color>
+
+    <color name="colorTopBar">#9b000e</color>
+    <color name="colorTopBarButton">#b90011</color>
+    <color name="colorTopBarButtonFocused">#8c000d</color>
+    <color name="colorTopBarButtonBorder">#8c000d</color>
+
+    <color name="colorStatusBar">#aaaaaa</color>
+    <color name="colorStatusBarButton">#cccccc</color>
+    <color name="colorStatusButtonFocused">#999999</color>
+    <color name="colorStatusButtonBorder">#999999</color>
+
+    <color name="colorGreenButton">#9ACD32</color>
+    <color name="colorGreenButtonFocused">#808000</color>
+    <color name="colorGreenButtonBorder">#32CD32</color>
+
+    <color name="colorSmokerButton">#f0f0f0</color>
+    <color name="colorSmokerButtonFocused">#d1d1d1</color>
+    <color name="colorSmokerButtonBorder">#d9d9d9</color>
+</resources>

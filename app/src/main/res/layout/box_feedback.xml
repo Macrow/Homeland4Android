@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llFeedbackBox"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pbLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:indicatorName="BallPulseIndicator"
+        app:indicatorColor="@color/colorStatusBar"/>
+
+    <LinearLayout
+        android:id="@+id/llFailedBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical|center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="加载数据失败 请检查网络" />
+
+        <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnReloadFromFailed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            fancy:fb_borderColor="@color/colorStatusButtonBorder"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorStatusBarButton"
+            fancy:fb_focusColor="@color/colorStatusButtonFocused"
+            fancy:fb_fontIconResource="&#xf1da;"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="重新加载"
+            fancy:fb_textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>

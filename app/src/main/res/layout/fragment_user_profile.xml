@@ -1,0 +1,306 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="org.mstudio.homeland4android.ui.profile.ProfileFragment">
+
+    <include
+        layout="@layout/box_feedback"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_top_corner_no_bottom_line"
+                    android:gravity="center"
+                    android:paddingTop="20dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivUserImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_no_corner_without_bottom"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvUserName"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:background="@drawable/shape_no_corner_without_bottom_with_top_line">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="主题数" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="回复数" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="关注" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="被关注" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:text="收藏" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/shape_bottom_corner_no_top_line">
+
+                    <TextView
+                        android:id="@+id/tvTopicCount"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_number_background"
+                        android:gravity="center|center_vertical" />
+
+                    <TextView
+                        android:id="@+id/tvReplyCount"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_number_background"
+                        android:gravity="center|center_vertical" />
+
+                    <TextView
+                        android:id="@+id/tvFollowingCount"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_number_background"
+                        android:gravity="center|center_vertical" />
+
+                    <TextView
+                        android:id="@+id/tvFollowerCount"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_number_background"
+                        android:gravity="center|center_vertical" />
+
+                    <TextView
+                        android:id="@+id/tvFavoriteCount"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/shape_number_background"
+                        android:gravity="center|center_vertical" />
+
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:padding="15dp"
+                    android:background="@drawable/shape_top_corner_no_bottom_line">
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_height="20dp"
+                        android:layout_width="20dp"
+                        android:layout_marginRight="10dp"
+                        app:iiv_color="@color/colorStatusBar"
+                        app:iiv_icon="faw-male"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="用户组级别"/>
+
+                    <TextView
+                        android:id="@+id/tvUserIntro"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:padding="15dp"
+                    android:background="@drawable/shape_bottom_corner">
+
+                    <com.mikepenz.iconics.view.IconicsImageView
+                        android:layout_height="20dp"
+                        android:layout_width="20dp"
+                        android:layout_marginRight="10dp"
+                        app:iiv_color="@color/colorStatusBar"
+                        app:iiv_icon="faw-calendar"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="注册时间"/>
+
+                    <TextView
+                        android:id="@+id/tvUserCreatedAt"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"/>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <LinearLayout
+                android:id="@+id/llUserBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:gravity="center">
+
+                    <com.sackcentury.shinebuttonlib.ShineButton
+                        android:id="@+id/btnBlock"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        app:btn_color="@color/colorSmokerButtonFocused"
+                        app:btn_fill_color="#ff8c00"
+                        app:allow_random_color="false"
+                        app:enable_flashing="true"
+                        app:big_shine_color="#ff8c00"
+                        app:click_animation_duration="200"
+                        app:shine_animation_duration="1500"
+                        app:shine_turn_angle="10"
+                        app:small_shine_offset_angle="20"
+                        app:shine_distance_multiple="1.5"
+                        app:small_shine_color="#ff4c00"
+                        app:shine_count="8"
+                        app:siShape="@raw/smile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="屏蔽"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="50dp"
+                    android:padding="5dp"
+                    android:gravity="center">
+
+                    <com.sackcentury.shinebuttonlib.ShineButton
+                        android:id="@+id/btnFollowing"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        app:btn_color="@color/colorSmokerButtonFocused"
+                        app:btn_fill_color="#ff8c00"
+                        app:allow_random_color="false"
+                        app:enable_flashing="true"
+                        app:big_shine_color="#ff8c00"
+                        app:click_animation_duration="200"
+                        app:shine_animation_duration="1500"
+                        app:shine_turn_angle="10"
+                        app:small_shine_offset_angle="20"
+                        app:shine_distance_multiple="1.5"
+                        app:small_shine_color="#ff4c00"
+                        app:shine_count="8"
+                        app:siShape="@raw/star" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="关注"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

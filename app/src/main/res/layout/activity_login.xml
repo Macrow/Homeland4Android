@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/box_feedback" android:visibility="gone"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="20dp"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:lineSpacingMultiplier="1.5"
+                android:text="\t\t本程序仅通过OAuth2.0来获取登录信息，是通过浏览器登录跳转实现的，非常安全方便，不会存储您的密码等敏感信息，请点击下面的按钮进行登录，请确保您的浏览器已经登录ruby-china.org。" />
+
+            <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/btnLoginByAuthCode"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="15dp"
+                fancy:fb_borderColor="@color/colorGreenButtonBorder"
+                fancy:fb_borderWidth="1dp"
+                fancy:fb_defaultColor="@color/colorGreenButton"
+                fancy:fb_focusColor="@color/colorGreenButtonFocused"
+                fancy:fb_fontIconResource="&#xf0c1;"
+                fancy:fb_iconPosition="left"
+                fancy:fb_radius="5dp"
+                fancy:fb_text="  通过浏览器跳转登录"
+                fancy:fb_textSize="18dp"
+                fancy:fb_textColor="#FFFFFF" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</FrameLayout>

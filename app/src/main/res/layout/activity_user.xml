@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorTopBar">
+
+        <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnBack"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            fancy:fb_borderColor="@color/colorTopBarButtonBorder"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorTopBarButton"
+            fancy:fb_focusColor="@color/colorTopBarButtonFocused"
+            fancy:fb_fontIconResource="&#xf060;"
+            fancy:fb_fontIconSize="10dp"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="4dp"
+            fancy:fb_text="返回"
+            fancy:fb_textSize="12dp"
+            fancy:layout_constraintBottom_toBottomOf="parent"
+            fancy:layout_constraintLeft_toLeftOf="parent"
+            fancy:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="10dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/contentBox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+</LinearLayout>

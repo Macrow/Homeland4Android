@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivUserImage"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="left|center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvNodeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginRight="8dp"
+                    android:background="#cccccc"
+                    android:gravity="center_vertical"
+                    android:textColor="#ffffff"
+                    android:textSize="10sp" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:id="@+id/iiExcellent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    app:iiv_color="#ff8900"
+                    app:iiv_icon="faw_diamond"
+                    app:iiv_size="12dp"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tvExcellent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="精华"
+                    android:textSize="10dp"
+                    android:textColor="#ff8900"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvCreatedDateTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textSize="10sp" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:iiv_color="@color/colorStatusBar"
+                    app:iiv_icon="faw_thumbs_up"
+                    app:iiv_size="12dp" />
+
+                <TextView
+                    android:id="@+id/tvLikeCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="10sp" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:iiv_color="@color/colorStatusBar"
+                    app:iiv_icon="faw_fire"
+                    app:iiv_size="12dp" />
+
+                <TextView
+                    android:id="@+id/tvHitCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="10sp" />
+
+                <com.mikepenz.iconics.view.IconicsImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:iiv_color="@color/colorStatusBar"
+                    app:iiv_icon="faw_commenting"
+                    app:iiv_size="12dp" />
+
+                <TextView
+                    android:id="@+id/tvReplyCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cccccc" />
+
+    <LinearLayout
+        android:id="@+id/llAdminBox"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:padding="2dp"
+        android:orientation="horizontal"
+        android:background="#f5f5f5"
+        android:gravity="right|center_vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:background="@color/colorStatusBar"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:text="屏蔽话题"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvDoExcellent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:background="@color/colorStatusBar"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:text="加精华"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvUnDoExcellent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:background="@color/colorStatusBar"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:text="去掉精华"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:background="@color/colorStatusBar"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:text="关闭回复"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:background="@color/colorStatusBar"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:text="开启回复"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:background="@color/colorStatusBar"
+            android:textColor="#ffffff"
+            android:textSize="10dp"
+            android:text="编辑"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <br.tiagohm.markdownview.MarkdownView
+        android:id="@+id/mvContentBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+

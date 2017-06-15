@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.mstudio.homeland4android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".HomelandApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.topics.TopicsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.topic_detail.TopicDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="homeland4android" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.notifications.NotificationsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.topic_add_edit.TopicAddEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.reply_add_edit.ReplyAddEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.user_profile.UserProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.user_topic_list.UserTopicListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.user_user_list.UserUserListActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.about.AboutActivity"></activity>
+    </application>
+
+</manifest>

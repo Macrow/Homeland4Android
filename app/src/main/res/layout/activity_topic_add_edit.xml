@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorTopBar">
+
+        <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnBack"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            fancy:fb_borderColor="@color/colorTopBarButtonBorder"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorTopBarButton"
+            fancy:fb_focusColor="@color/colorTopBarButtonFocused"
+            fancy:fb_fontIconResource="&#xf060;"
+            fancy:fb_fontIconSize="10dp"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="4dp"
+            fancy:fb_text="取消"
+            fancy:fb_textSize="12dp"
+            fancy:layout_constraintBottom_toBottomOf="parent"
+            fancy:layout_constraintLeft_toLeftOf="parent"
+            fancy:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="发表话题"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/btnBack"
+            app:layout_constraintRight_toLeftOf="@+id/btnCreateOrUpdate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.461" />
+
+        <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnCreateOrUpdate"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            fancy:fb_borderColor="@color/colorTopBarButtonBorder"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorTopBarButton"
+            fancy:fb_focusColor="@color/colorTopBarButtonFocused"
+            fancy:fb_fontIconResource="&#xf00c;"
+            fancy:fb_fontIconSize="10dp"
+            fancy:fb_iconPosition="right"
+            fancy:fb_radius="4dp"
+            fancy:fb_text="发表"
+            fancy:fb_textSize="12dp"
+            fancy:layout_constraintBottom_toBottomOf="parent"
+            fancy:layout_constraintRight_toRightOf="parent"
+            fancy:layout_constraintTop_toTopOf="parent"
+            fancy:layout_constraintVertical_bias="0.555" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/contentBox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/status_bar">
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/btnCamera"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            app:iiv_color="@color/colorStatusBar"
+            app:iiv_icon="@string/faw_camera"
+            app:iiv_size="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btnGallery"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/btnGallery"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            app:iiv_color="@color/colorStatusBar"
+            app:iiv_icon="@string/faw_picture_o"
+            app:iiv_size="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

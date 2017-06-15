@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@android:color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="8dp"
+    android:paddingTop="4dp">
+
+    <com.mikepenz.iconics.view.IconicsImageView
+        android:id="@+id/iiIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="15dp"
+        app:iiv_color="@color/colorStatusBar"
+        app:iiv_icon="faw-inbox" />
+
+    <TextView
+        android:id="@+id/tvNodeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:textSize="15dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvNodeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/colorStatusBar"
+        android:lines="1"
+        android:ellipsize="end"
+        android:text="TextView" />
+</LinearLayout>

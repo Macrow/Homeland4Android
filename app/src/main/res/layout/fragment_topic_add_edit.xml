@@ -1,0 +1,103 @@
+<LinearLayout android:id="@+id/contentBox"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <include layout="@layout/box_feedback" android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="节点" />
+
+        <TextView
+            android:id="@+id/tvNodeName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="13dp"
+            android:text="请选择节点" />
+
+        <com.mikepenz.iconics.view.IconicsImageView
+            android:id="@+id/iiNodeIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="20dp"
+            app:iiv_color="@color/colorStatusBar"
+            app:iiv_icon="faw-sort" />
+
+        <TextView
+            android:id="@+id/tvNodeId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:background="@drawable/shape_no_corner_without_bottom_with_top_line">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标题" />
+
+        <EditText
+            android:id="@+id/etTopicTitle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="20dp"
+            android:hint="请输入话题标题"
+            android:textSize="14dp"
+            android:lines="1"
+            android:layout_marginRight="20dp"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:background="@drawable/shape_no_corner_without_bottom_with_top_line">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/etTopicBody"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:textSize="14dp"
+                android:inputType="textMultiLine"
+                android:hint="话题正文"
+                android:background="@null"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

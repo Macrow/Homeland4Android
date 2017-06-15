@@ -1,0 +1,170 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorTopBar">
+
+        <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnBack"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            fancy:fb_borderColor="@color/colorTopBarButtonBorder"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorTopBarButton"
+            fancy:fb_focusColor="@color/colorTopBarButtonFocused"
+            fancy:fb_fontIconResource="&#xf060;"
+            fancy:fb_fontIconSize="10dp"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="4dp"
+            fancy:fb_text="返回"
+            fancy:fb_textSize="12dp"
+            fancy:layout_constraintBottom_toBottomOf="parent"
+            fancy:layout_constraintLeft_toLeftOf="parent"
+            fancy:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="详细内容"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/btnFollowing"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerInParent="true"
+            android:src="@android:color/darker_gray"
+            app:btn_color="@android:color/white"
+            app:btn_fill_color="#ff8c00"
+            app:allow_random_color="false"
+            app:enable_flashing="true"
+            app:big_shine_color="#ff8c00"
+            app:click_animation_duration="200"
+            app:shine_animation_duration="1500"
+            app:shine_turn_angle="10"
+            app:small_shine_offset_angle="20"
+            app:shine_distance_multiple="1.5"
+            app:small_shine_color="#ff4c00"
+            app:shine_count="8"
+            app:siShape="@raw/heart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/contentBox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/status_bar">
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerInParent="true"
+            android:src="@android:color/darker_gray"
+            app:btn_color="@color/colorStatusBar"
+            app:btn_fill_color="#ff8c00"
+            app:allow_random_color="false"
+            app:enable_flashing="true"
+            app:big_shine_color="#ff8c00"
+            app:click_animation_duration="200"
+            app:shine_animation_duration="1500"
+            app:shine_turn_angle="10"
+            app:small_shine_offset_angle="20"
+            app:shine_distance_multiple="1.5"
+            app:small_shine_color="#ff4c00"
+            app:shine_count="8"
+            app:siShape="@raw/star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <mehdi.sakout.fancybuttons.FancyButton xmlns:fancy="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnNewReply"
+            android:layout_width="56dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            fancy:fb_borderColor="@color/colorStatusButtonBorder"
+            fancy:fb_borderWidth="1dp"
+            fancy:fb_defaultColor="@color/colorStatusBarButton"
+            fancy:fb_focusColor="@color/colorStatusButtonFocused"
+            fancy:fb_fontIconResource="&#xf27a;"
+            fancy:fb_fontIconSize="20dp"
+            fancy:fb_iconPosition="left"
+            fancy:fb_radius="4dp"
+            fancy:fb_text=""
+            fancy:layout_constraintBottom_toBottomOf="parent"
+            fancy:layout_constraintTop_toTopOf="parent"
+            fancy:layout_constraintLeft_toLeftOf="parent"
+            fancy:layout_constraintRight_toRightOf="parent" />
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/btnLike"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerInParent="true"
+            android:src="@android:color/darker_gray"
+            app:btn_color="@color/colorStatusBar"
+            app:btn_fill_color="#ff8c00"
+            app:allow_random_color="false"
+            app:enable_flashing="true"
+            app:big_shine_color="#ff8c00"
+            app:click_animation_duration="200"
+            app:shine_animation_duration="1500"
+            app:shine_turn_angle="10"
+            app:small_shine_offset_angle="20"
+            app:shine_distance_multiple="1.5"
+            app:small_shine_color="#ff4c00"
+            app:shine_count="8"
+            app:siShape="@raw/like"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>
