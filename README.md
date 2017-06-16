@@ -1,15 +1,12 @@
 # Homeland for Android
-
 专为Homeland开发的Android客户端
 
 ### 下载链接
-
 [点击下载](https://github.com/Macrow/Homeland4Android/raw/master/release/Homeland4Android.apk)
 
 <img src="https://github.com/Macrow/Homeland4Android/raw/master/screenshots/Homeland4Android01.png" alt="Homeland4Android">
 <img src="https://github.com/Macrow/Homeland4Android/raw/master/screenshots/Homeland4Android02.png" alt="Homeland4Android">
 <img src="https://github.com/Macrow/Homeland4Android/raw/master/screenshots/Homeland4Android03.png" alt="Homeland4Android">
-
 
 ### 参考或采用的开源库，感谢无私分享
 
@@ -40,7 +37,7 @@
 
 ### License
 ```
-   Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
+   Copyright (C) 2017 By Macrow
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
