@@ -6,9 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.widget.Toast;
+
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 
@@ -36,10 +40,15 @@ public class ImageGetterUtil {
             if (!dir.exists()) {
                 dir.mkdirs();
             }
-            Uri uri = Uri.fromFile(new File(cameraPath));
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+            Uri imageUri;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                String authority = activity.getPackageName() + ".provider";
+                imageUri = FileProvider.getUriForFile(activity, authority, new File(cameraPath));
+            } else {
+                imageUri = Uri.fromFile(new File(cameraPath));
+            }
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
             intent.putExtra(cameraPath, EXTRA_CAMERA_IMAGE_PATH);
-            intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
             activity.startActivityForResult(intent, CAMERA_REQUEST_CODE);
             return cameraPath;
         } else {
