@@ -2,10 +2,12 @@
 
 专为Homeland开发的Android客户端
 
+### 下载链接
+
+[点击下载](https://github.com/Macrow/Homeland4Android/raw/master/release/Homeland4Android.apk)
+
 <img src="https://github.com/Macrow/Homeland4Android/raw/master/screenshots/Homeland4Android01.png" alt="Homeland4Android">
-
 <img src="https://github.com/Macrow/Homeland4Android/raw/master/screenshots/Homeland4Android02.png" alt="Homeland4Android">
-
 <img src="https://github.com/Macrow/Homeland4Android/raw/master/screenshots/Homeland4Android03.png" alt="Homeland4Android">
 
 
