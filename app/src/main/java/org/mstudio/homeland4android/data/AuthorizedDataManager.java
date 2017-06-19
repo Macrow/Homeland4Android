@@ -25,6 +25,7 @@ import org.mstudio.homeland4android.ui.login.LoginActivity;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
@@ -60,259 +61,158 @@ public class AuthorizedDataManager {
     }
 
     public Observable<User> loadMyProfile() {
-        return Observable.defer(new Callable<ObservableSource<User>>() {
-            @Override
-            public ObservableSource<User> call() throws Exception {
-                return mApiService.getMyProfile(mTokenManager.getAccessToken())
-                        .map(new Function<RawUser, User>() {
-                            @Override
-                            public User apply(@NonNull RawUser user) throws Exception {
-                                return new User(user.getUser(), user.getMeta());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.getMyProfile(mTokenManager.getAccessToken())
+            .map(new Function<RawUser, User>() {
+                @Override
+                public User apply(@NonNull RawUser rawUser) throws Exception {
+                    return new User(rawUser.getUser(), rawUser.getMeta());
+                }
+            }));
     }
 
     public Observable<RawUnreadNotificationResult> loadUnreadNotificationCount() {
-        return Observable.defer(new Callable<ObservableSource<? extends RawUnreadNotificationResult>>() {
-            @Override
-            public ObservableSource<? extends RawUnreadNotificationResult> call() throws Exception {
-                return mApiService.loadUnreadNotificationCount(mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.loadUnreadNotificationCount(mTokenManager.getAccessToken()));
     }
 
     public Observable<TopicDetailItem> createTopic(final String title, final int nodeId, final String body) {
-        return Observable.defer(new Callable<ObservableSource<? extends TopicDetailItem>>() {
-            @Override
-            public ObservableSource<? extends TopicDetailItem> call() throws Exception {
-                return mApiService.createTopic(title, nodeId, body, mTokenManager.getAccessToken())
-                        .map(new Function<RawTopic, TopicDetailItem>() {
-                            @Override
-                            public TopicDetailItem apply(@NonNull RawTopic rawTopic) throws Exception {
-                                return new TopicDetailItem(rawTopic.getTopic(), rawTopic.getMeta());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.createTopic(title, nodeId, body, mTokenManager.getAccessToken())
+                .map(new Function<RawTopic, TopicDetailItem>() {
+                    @Override
+                    public TopicDetailItem apply(@NonNull RawTopic rawTopic) throws Exception {
+                        return new TopicDetailItem(rawTopic.getTopic(), rawTopic.getMeta());
+                    }
+                }));
     }
 
     public Observable<TopicDetailItem> updateTopic(final int id, final String title, final int nodeId, final String body) {
-        return Observable.defer(new Callable<ObservableSource<? extends TopicDetailItem>>() {
-            @Override
-            public ObservableSource<? extends TopicDetailItem> call() throws Exception {
-                return mApiService.updateTopic(id, title, nodeId, body, mTokenManager.getAccessToken())
-                        .map(new Function<RawTopic, TopicDetailItem>() {
-                            @Override
-                            public TopicDetailItem apply(@NonNull RawTopic rawTopic) throws Exception {
-                                return new TopicDetailItem(rawTopic.getTopic(), rawTopic.getMeta());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.updateTopic(id, title, nodeId, body, mTokenManager.getAccessToken())
+                .map(new Function<RawTopic, TopicDetailItem>() {
+                    @Override
+                    public TopicDetailItem apply(@NonNull RawTopic rawTopic) throws Exception {
+                        return new TopicDetailItem(rawTopic.getTopic(), rawTopic.getMeta());
+                    }
+                }));
     }
 
     public Observable<TopicDetailItem> loadTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends TopicDetailItem>>() {
-            @Override
-            public ObservableSource<? extends TopicDetailItem> call() throws Exception {
-                return mApiService.getTopicDetail(topicId, mTokenManager.getAccessToken())
-                        .map(new Function<RawTopic, TopicDetailItem>() {
-                            @Override
-                            public TopicDetailItem apply(@NonNull RawTopic rawTopic) throws Exception {
-                                return new TopicDetailItem(rawTopic.getTopic(), rawTopic.getMeta());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.getTopicDetail(topicId, mTokenManager.getAccessToken())
+                .map(new Function<RawTopic, TopicDetailItem>() {
+                    @Override
+                    public TopicDetailItem apply(@NonNull RawTopic rawTopic) throws Exception {
+                        return new TopicDetailItem(rawTopic.getTopic(), rawTopic.getMeta());
+                    }
+                }));
     }
 
     public Observable<ReplyDetailItem> loadReply(final int replyId) {
-        return Observable.defer(new Callable<ObservableSource<? extends ReplyDetailItem>>() {
-            @Override
-            public ObservableSource<? extends ReplyDetailItem> call() throws Exception {
-                return mApiService.getReplyDetail(replyId, mTokenManager.getAccessToken())
-                        .map(new Function<RawReply, ReplyDetailItem>() {
-                            @Override
-                            public ReplyDetailItem apply(@NonNull RawReply rawReply) throws Exception {
-                                return new ReplyDetailItem(rawReply.getReply());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.getReplyDetail(replyId, mTokenManager.getAccessToken())
+                .map(new Function<RawReply, ReplyDetailItem>() {
+                    @Override
+                    public ReplyDetailItem apply(@NonNull RawReply rawReply) throws Exception {
+                        return new ReplyDetailItem(rawReply.getReply());
+                    }
+                }));
     }
 
     public Observable<ReplyDetailItem> createReply(final int topicId, final String body) {
-        return Observable.defer(new Callable<ObservableSource<? extends ReplyDetailItem>>() {
-            @Override
-            public ObservableSource<? extends ReplyDetailItem> call() throws Exception {
-                return mApiService.createReply(topicId, body, mTokenManager.getAccessToken())
-                        .map(new Function<RawReply, ReplyDetailItem>() {
-                            @Override
-                            public ReplyDetailItem apply(@NonNull RawReply rawReply) throws Exception {
-                                return new ReplyDetailItem(rawReply.getReply());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.createReply(topicId, body, mTokenManager.getAccessToken())
+                .map(new Function<RawReply, ReplyDetailItem>() {
+                    @Override
+                    public ReplyDetailItem apply(@NonNull RawReply rawReply) throws Exception {
+                        return new ReplyDetailItem(rawReply.getReply());
+                    }
+                }));
     }
 
     public Observable<ReplyDetailItem> updateReply(final int replyId, final String body) {
-        return Observable.defer(new Callable<ObservableSource<? extends ReplyDetailItem>>() {
-            @Override
-            public ObservableSource<? extends ReplyDetailItem> call() throws Exception {
-                return mApiService.updateReply(replyId, body, mTokenManager.getAccessToken())
-                        .map(new Function<RawReply, ReplyDetailItem>() {
-                            @Override
-                            public ReplyDetailItem apply(@NonNull RawReply rawReply) throws Exception {
-                                return new ReplyDetailItem(rawReply.getReply());
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.updateReply(replyId, body, mTokenManager.getAccessToken())
+                .map(new Function<RawReply, ReplyDetailItem>() {
+                    @Override
+                    public ReplyDetailItem apply(@NonNull RawReply rawReply) throws Exception {
+                        return new ReplyDetailItem(rawReply.getReply());
+                    }
+                }));
     }
 
     public Observable<RawActionResult> favoriteTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.favoriteTopic(topicId, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.favoriteTopic(topicId, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> unfavoriteTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.unfavoriteTopic(topicId, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.unfavoriteTopic(topicId, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawLikeResult> likeTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawLikeResult>>() {
-            @Override
-            public ObservableSource<? extends RawLikeResult> call() throws Exception {
-                return mApiService.likeTopicOrReply("topic", topicId, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.likeTopicOrReply("topic", topicId, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawLikeResult> unlikeTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawLikeResult>>() {
-            @Override
-            public ObservableSource<? extends RawLikeResult> call() throws Exception {
-                return mApiService.unlikeTopicOrReply("topic", topicId, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.unlikeTopicOrReply("topic", topicId, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> followTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.followTopic(topicId, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.followTopic(topicId, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> unfollowTopic(final int topicId) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.unfollowTopic(topicId, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.unfollowTopic(topicId, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> doActionOnTopic(final int topicId, final String actionType) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.doActionOnTopic(topicId, actionType, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.doActionOnTopic(topicId, actionType, mTokenManager.getAccessToken()));
     }
 
     public Observable<List<NotificationListItem>> loadNotificationList(final int offset, final int limit) {
-        return Observable.defer(new Callable<ObservableSource<? extends List<NotificationListItem>>>() {
-            @Override
-            public ObservableSource<? extends List<NotificationListItem>> call() throws Exception {
-                return mApiService.getNotifications(offset, limit, mTokenManager.getAccessToken())
-                        .map(new Function<RawNotifications, List<NotificationListItem>>() {
-                            @Override
-                            public List<NotificationListItem> apply(@NonNull RawNotifications rawNotifications) throws Exception {
-                                List<NotificationListItem> items = new ArrayList<>();
-                                for(RawNotifications.NotificationsBean notification : rawNotifications.getNotifications()) {
-                                    items.add(new NotificationListItem(notification));
-                                }
-                                return items;
-                            }
-                        });
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.getNotifications(offset, limit, mTokenManager.getAccessToken())
+                .map(new Function<RawNotifications, List<NotificationListItem>>() {
+                    @Override
+                    public List<NotificationListItem> apply(@NonNull RawNotifications rawNotifications) throws Exception {
+                        List<NotificationListItem> items = new ArrayList<>();
+                        for(RawNotifications.NotificationsBean notification : rawNotifications.getNotifications()) {
+                            items.add(new NotificationListItem(notification));
+                        }
+                        return items;
+                    }
+                }));
     }
 
     public Observable<RawActionResult> clearAllNotifications() {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.clearAllNotifications(mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.clearAllNotifications(mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> blockUser(final String login) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.blockUser(login, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.blockUser(login, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> unblockUser(final String login) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.unblockUser(login, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.unblockUser(login, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> followUser(final String login) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.followUser(login, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.followUser(login, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawActionResult> unfollowUser(final String login) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawActionResult>>() {
-            @Override
-            public ObservableSource<? extends RawActionResult> call() throws Exception {
-                return mApiService.unfollowUser(login, mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.unfollowUser(login, mTokenManager.getAccessToken()));
     }
 
     public Observable<RawUploadPhoto> uploadPhoto(final String photo) {
-        return Observable.defer(new Callable<ObservableSource<? extends RawUploadPhoto>>() {
-            @Override
-            public ObservableSource<? extends RawUploadPhoto> call() throws Exception {
-                return mApiService.uploadPhoto(prepareFilePart("file", photo), mTokenManager.getAccessToken());
-            }
-        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
+        return getTransObservable(mApiService.uploadPhoto(prepareFilePart("file", photo), mTokenManager.getAccessToken()));
     }
 
     private MultipartBody.Part prepareFilePart(String partName, String path) {
         File file = new File(path);
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpeg; charset=utf-8"), file);
         return MultipartBody.Part.createFormData(partName, file.getName(), requestFile);
+    }
+
+    private <T> Observable<T> getTransObservable(final Observable<T> o) {
+        return Observable.defer(new Callable<ObservableSource<T>>() {
+            @Override
+            public ObservableSource<T> call() throws Exception {
+                return o;
+            }
+        }).subscribeOn(Schedulers.io()).retryWhen(new RefreshTokenRetryFunction());
     }
 
     private class RefreshTokenRetryFunction implements Function<Observable<Throwable>, ObservableSource<?>> {
